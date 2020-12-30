@@ -1,0 +1,43 @@
+
+<body>
+    
+    <div class="banner">
+        <img src="/img/img+video/f14777dd-4036-4d51-9305-aea79f4d4308_img_food_mugungwha_detail01.jpg" alt="seoul_food">
+        <span class="banner_tag">#for_foodlover</span>
+    </div>
+
+    <div class="content">
+        <div class="content_left">
+            <div class="locations">
+                <button class="btn title">Locations</button><br>
+                <div class="btns">
+                    <a href="/food/mapo" class="btn mapobtn" data-key="location" data-value="mapo">- Mapo-Gu</a><br>
+                    <a href="/food/yongsan" class="btn" data-key="location" data-value="yongsan">- Yongsan-Gu</a><br>
+                    <a href="/food/dondaemun" class="btn" data-key="location" data-value="dondaemun">- Dondaemun-Gu</a><br>
+                    <a href="/food/gangnam" class="btn" data-key="location" data-value="gangnam">- Gangnam-Gu</a><br>
+                    <a href="/food/yeongdeung" class="btn" data-key="location" data-value="yeongdeung">- Yeongdeungpo-Gu</a><br>
+                    <a href="/food" class="btn displayAll">- See all restaurants</a> 
+                </div>
+            </div>
+        </div>
+        <div class="menus">
+                <ul class="list">
+                    {{#each data}}
+                    <li class="restaurant">
+                        <img src="/img/{{img}}" alt="{{location}}" class="res_thumbnail">
+                        <div class="res_info">
+                            <span class="res_name">{{name}}</span><br>
+                            <span class="res_add">{{address}}</span><br>
+                            <span class="res_phone">{{phone}}</span><br>
+                            <span class="res_hrs">{{hours}}</span><br>
+                            <span class="res_description">{{description}}</span>
+                            <span class="dollar">{{dollar_sign}}</span>
+                        </div>
+                        
+                    </li>
+                    {{/each}}
+                </ul>
+        </div>
+       
+    </div>
+</body>

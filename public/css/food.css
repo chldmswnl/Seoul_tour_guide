@@ -1,0 +1,102 @@
+.banner {
+  width: 100%;
+  height: 300px;
+  display: flex;
+}
+
+img {
+  width: 40%;
+  height: 100%;
+  margin-left: 10%;
+}
+.banner_tag {
+  color: #6b93e3;
+  font-weight: bold;
+  font-size: 60px;
+  margin-left: 5%;
+  margin-top: 10%;
+}
+
+.content {
+  width: 100%;
+  margin-left: 50px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+}
+
+.content_left {
+  margin-right: 150px;
+}
+
+.locations .btn {
+  display: block;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.locations .title {
+  font-size: 25px;
+}
+
+.btns {
+  margin-left: 30px;
+}
+
+.locations .displayAll {
+  color: #97accf;
+}
+
+.locations .displayAll:hover {
+  text-decoration: underline #97accf;
+}
+
+.locations .title:hover {
+  text-decoration: underline transparent;
+}
+
+.locations button:hover {
+  text-decoration: underline black;
+}
+
+.restaurant {
+  width: 600px;
+  display: flex;
+  align-items: center;
+  border: 2px solid #d7d8db;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.restaurant img {
+  width: 20%;
+  height: 20%;
+  margin-right: 20px;
+}
+
+.res_name {
+  font-weight: bold;
+}
+
+.res_phone,
+.res_hrs,
+.res_description,
+.res_add {
+  font-size: 13px;
+}
+
+.dollar {
+  font-size: 13px;
+  color: #cfab1f;
+  font-weight: bold;
+}
+
+.res_info {
+  margin-left: 10px;
+}

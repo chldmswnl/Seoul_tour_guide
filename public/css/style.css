@@ -1,0 +1,130 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  width: 100%;
+}
+
+.nav a {
+  text-decoration: none;
+}
+.nav .logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: #053db5;
+  margin-left: 20px;
+}
+.nav .menus {
+  position: absolute;
+  margin-left: 400px;
+}
+.nav .menus a {
+  font-size: 15px;
+  margin-right: 80px;
+  color: black;
+  font-weight: 550;
+}
+
+.menus > a:hover {
+  text-decoration: underline;
+  color: #5470eb;
+}
+
+.nav .icons {
+  margin-right: 30px;
+}
+
+.nav .icons button {
+  border: none;
+  background-color: white;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.video {
+  width: 100%;
+  height: 400px;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+}
+
+.contents {
+  margin-top: 50px;
+  width: 80%;
+}
+.contents_up {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 50px;
+  margin-left: 150px;
+}
+.contents_down {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 50px;
+  margin-left: 150px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-right: 50px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #b8b6b6;
+}
+img {
+  width: 300px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.mini_title {
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #7d7c7c;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.introduction {
+  font-size: 15px;
+  color: #4a4a4a;
+}
+
+.footer {
+  background-color: #1353c2;
+  width: 100%;
+  height: 80px;
+}
+
+.footer .footer_btns {
+  margin-left: 50px;
+  padding: 15px;
+}
+
+.footer .footer_btns .btn {
+  border: none;
+  background-color: #1353c2;
+  color: white;
+  margin-right: 10px;
+}

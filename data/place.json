@@ -1,0 +1,46 @@
+{
+    "places":[
+        {
+            "img":"../img+video/place/gyeongbok.jpg",
+            "name":"Gyeongbokgung_Palace",
+            "description":"Historic palace with tours & a museum",
+            "lat":37.5796212,
+            "lng":126.9748523
+        },
+        {
+            "img":"../img+video/place/chang.jpg",
+            "name":"Changdeokgung",
+            "description":"Joseon dynasty palace & gardens",
+            "lat":37.5794351,
+            "lng":126.9888539
+        },
+        {
+            "img":"../img+video/place/seoul_tower.jpg",
+            "name":"N_Seoul_Tower",
+            "description":"Tower with city views & a restaurant",
+            "lat":37.5511736,
+            "lng":126.9860379
+        },
+        {
+            "img":"../img+video/place/dong.jpg",
+            "name":"Myeong_dong",
+            "description":"Eclectic shopping & casual global dining",
+            "lat":37.5636417,
+            "lng":126.980654
+        },
+        {
+            "img":"../img+video/place/hanok.jpg",
+            "name":"Bukchon_Hanok_Village",
+            "description":"Heritage village with 600-year history",
+            "lat":37.5824117,
+            "lng":126.9814644
+        },
+        {
+            "img":"../img+video/place/cheon.jpg",
+            "name":"Cheonggyecheon",
+            "description":"Urban park space with a restored stream",
+            "lat":37.5691057,
+            "lng":126.9764805
+        }
+    ]
+}

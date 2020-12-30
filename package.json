@@ -1,0 +1,22 @@
+{
+  "name": "seoul",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon seoul",
+    "start": "node seoul"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express-handlebars": "^5.2.0",
+    "mongoose": "^5.11.8",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.6",
+    "path": "^0.12.7"
+  }
+}

@@ -1,0 +1,53 @@
+
+<body>
+    
+    <div class="banner">
+        <img src="../img+video/board_seoul.jpg" alt="banner" class="board_banner">
+        <span class="introduction_top">Welcome to community board</span>
+        <span class="introduction_bottom">Let's share our experiences or great tips for Seoul travelers</span>
+    </div>
+    <div class="board">
+        <div class="board_left">
+            <div class="left_title">
+                <span class="title">Recommendations</span>
+                <button class="add_content" title="write">WRITE</button>
+            </div>
+            <div class="contents">
+
+            </div>
+        </div>
+        <div class="board_right">
+            <span class="right_title">What's on trend</span>
+            <div class="keywords">
+                <div>
+                    <span>CORONA VIRUS</span>
+                    <span>BTS</span>
+                    <span>BLACK PINK</span>
+                </div>
+                <div>
+                    <span>SEOUL</span>
+                    <span>SUWON</span>
+                    <span>SPICY RICE CAKE</span>
+                </div>
+                <div>
+                    <span>BIBIMBAP</span>
+                    <span>KAKAO</span>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <div class="writing_window">
+        <span>What's your recommendation?</span>
+        <form action="javascript:addData();">
+            <p>Title : <input type="text" class="window_title" maxlength="50" required size="40px"></p>
+            <p>Writer : <input type="text" class="window_writer" maxlength="15" required ></p>
+            <p>Content : </p><textarea name="window_content" id="window_content" cols="50" rows="10"></textarea>
+            <p>Tags : <input type="text" class="tags" maxlength="20" placeholder="ex)#food" size="30px"></p>
+            <button type="submit" class="submit window_btn">POST</button>
+            <button type="reset"  class="window_btn">RESET</button>
+            <button class="close window_btn">CLOSE</button>
+        </form>
+    </div>
+
+</body>
