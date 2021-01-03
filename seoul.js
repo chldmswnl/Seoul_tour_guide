@@ -46,9 +46,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Load Controllers
 const mainController = require("./controllers/main");
 const foodController = require("./controllers/food");
+const placeController = require("./controllers/place");
 
 app.use("/", mainController);
 app.use("/food", foodController);
+app.use("/place", placeController);
 
 const HTTP_PORT = process.env.PORT;
 

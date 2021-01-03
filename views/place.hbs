@@ -1,7 +1,7 @@
 <body>
     
-    <div class="banner">
-        <img src="../img+video/place_banner.jpg" alt="place" class="place_img">
+    <div class="place_banner">
+        <img src="/img/img+video/place_banner.jpg" alt="place" class="place_img">
         <div class="tags">
             <span class="place_tag1">#seoul_hot_spots</span><br>
             <span class="place_tag2">#seoul_hot_spots</span><br>
@@ -9,8 +9,18 @@
             <span class="place_tag4">#seoul_hot_spots</span><br>
         </div>
     </div>
-    <div class="content">
-        <div class="places"></div>
+    <div class="place_content">
+        <div class="places">
+            {{#each data}}
+            <div class="place">
+            
+                <img src="/img/{{img}}" alt="{{name}}"><br>
+                <span class="place_name">{{name}}</span><br>
+                <span class="place_des">{{description}}</span>
+              
+            </div>
+            {{/each}}
+        </div>
         <div class="content_left">
             <div class="map"></div>
             <div class="slide">
@@ -18,11 +28,11 @@
                 <div class="slide_show">
                     <div class="slide_one fade">
                         <div class="location">
-                            <img src="../img+video/place/63_building.jpg" alt="63_building" class="loaction_img">
+                            <img src="/img/img+video/place/63_building.jpg" alt="63_building" class="loaction_img">
                             <span class="location_name">63 Building</span>
                         </div>
                         <div class="location">
-                            <img src="../img+video/place/ddp.jpg" alt="ddp" class="loaction_img">
+                            <img src="/img/img+video/place/ddp.jpg" alt="ddp" class="loaction_img">
                             <span class="location_name">Dongdaemun Disign Plaze</span>
                         </div>
                         <a class="next">&#10095;</a>
@@ -30,11 +40,11 @@
                     <div class="slide_two fade">
                         <a class="prev">&#10094;</a>
                         <div class="location">
-                            <img src="../img+video/place/lotte_tower.jpg" alt="lotte_tower" class="loaction_img">
+                            <img src="/img/img+video/place/lotte_tower.jpg" alt="lotte_tower" class="loaction_img">
                             <span class="location_name">Lotte Tower</span>
                         </div>
                         <div class="location">
-                            <img src="../img+video/place/banpo.jpg" alt="banpo_bridge" class="loaction_img">
+                            <img src="/img/img+video/place/banpo.jpg" alt="banpo_bridge" class="loaction_img">
                             <span class="location_name">Banpo Bridge</span>
                         </div>
                         
@@ -44,15 +54,5 @@
         </div>
         
         
-    </div>
-
-    <div class="footer">
-        <div class="footer_btns">
-            <button class="btn">Privacy Policy</button>
-            <button class="btn">Use of Cookies</button>
-            <button class="btn">Terms of use</button>
-            <button class="btn">Legal</button>
-            <button class="btn">Site map</button>
-        </div>
     </div>
 </body>

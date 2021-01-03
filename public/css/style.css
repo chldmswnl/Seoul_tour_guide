@@ -89,8 +89,8 @@ video {
   padding-bottom: 10px;
   border-bottom: 1px dotted #b8b6b6;
 }
-img {
-  width: 300px;
+.index_content img {
+  width: 200px;
   height: 200px;
   margin-bottom: 20px;
 }
@@ -127,4 +127,13 @@ img {
   background-color: #1353c2;
   color: white;
   margin-right: 10px;
+}
+
+.index_content {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-right: 50px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #b8b6b6;
 }
