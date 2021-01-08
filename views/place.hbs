@@ -1,5 +1,5 @@
 <body>
-    
+
     <div class="place_banner">
         <img src="/img/img+video/place_banner.jpg" alt="place" class="place_img">
         <div class="tags">
@@ -12,47 +12,61 @@
     <div class="place_content">
         <div class="places">
             {{#each data}}
-            <div class="place">
-            
+            <div class="place" data-id={{placeId}}>
                 <img src="/img/{{img}}" alt="{{name}}"><br>
                 <span class="place_name">{{name}}</span><br>
                 <span class="place_des">{{description}}</span>
-              
             </div>
             {{/each}}
         </div>
-        <div class="content_left">
-            <div class="map"></div>
-            <div class="slide">
-                <span class="slide_title">Explore more</span>
-                <div class="slide_show">
-                    <div class="slide_one fade">
-                        <div class="location">
-                            <img src="/img/img+video/place/63_building.jpg" alt="63_building" class="loaction_img">
-                            <span class="location_name">63 Building</span>
-                        </div>
-                        <div class="location">
-                            <img src="/img/img+video/place/ddp.jpg" alt="ddp" class="loaction_img">
-                            <span class="location_name">Dongdaemun Disign Plaze</span>
-                        </div>
-                        <a class="next">&#10095;</a>
-                    </div>
-                    <div class="slide_two fade">
-                        <a class="prev">&#10094;</a>
-                        <div class="location">
-                            <img src="/img/img+video/place/lotte_tower.jpg" alt="lotte_tower" class="loaction_img">
-                            <span class="location_name">Lotte Tower</span>
-                        </div>
-                        <div class="location">
-                            <img src="/img/img+video/place/banpo.jpg" alt="banpo_bridge" class="loaction_img">
-                            <span class="location_name">Banpo Bridge</span>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        
+       <section class="map">
+          
+          <iframe id="placeMap" width="300px" height="300px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJod7tSseifDUR9hXHLFNGMIs&key=AIzaSyAPJLR2dypKM0MiFHYskiTe0L6hqor9X1Y" allowfullscreen></iframe>
+          <span class="mapInfo">Click tourist spot to check the location</span>
+      </section>
+   
     </div>
+      
+       <script>
+        const places=document.querySelectorAll('.place');
+        const map=document.querySelector('.map');
+        
+
+        places.forEach((place)=>{
+            place.addEventListener('click',()=>{
+                
+                const iframe=document.querySelector('#placeMap');
+                const dataId=place.getAttribute('data-id');
+                iframe.setAttribute('src',`https://www.google.com/maps/embed/v1/place?q=place_id:${dataId}&key=AIzaSyAPJLR2dypKM0MiFHYskiTe0L6hqor9X1Y`);
+            });
+        });
+
+        window.onscroll=function(){myfunction()};
+
+        function myfunction(){
+            let left=map.getBoundingClientRect().left;
+            console.log(left);
+            if(window.pageYOffset>=map.offsetTop)
+            {
+                
+            }else
+            {
+                
+            }
+        }
+        
+        
+    </script>
+    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPJLR2dypKM0MiFHYskiTe0L6hqor9X1Y&callback=initMap"  type="text/javascript"></script>
+    <script  type="text/javascript">
+        function initMap() {
+
+        var map = new google.maps.Map(document.querySelector('.map'), {
+          zoom: 3,
+            center:{lat: -33.848588, lng: 151.209834}
+        });
+        }
+    </script>-->
+    
 </body>
+

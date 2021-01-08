@@ -43,23 +43,31 @@ body {
 }
 
 .place_content {
-  width: 100%;
-  margin-left: 5%;
   margin-top: 40px;
   display: flex;
 }
 
-.content_left {
-  width: 30%;
+#placemap {
+  height: 500px;
+  width: 500px;
 }
-
 .map {
-  height: 400px;
-  width: 100%;
+  text-align: center;
+  margin-right: 30px;
+}
+.mapInfo {
+  font-size: 13px;
+  display: block;
+  margin-top: 20px;
+  width: 300px;
+  background-color: #3766e6;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 0;
 }
 
 .place_content .places {
-  width: 60%;
+  margin-left: 20px;
   overflow: hidden;
 }
 
@@ -70,7 +78,7 @@ body {
   cursor: pointer;
   width: 250px;
   height: 250px;
-  padding: 10px;
+  padding: 5px;
   margin-right: 20px;
   margin-bottom: 20px;
   border: 1px solid #dcdee0;
@@ -97,66 +105,4 @@ body {
 .place_des {
   font-size: 12px;
   padding: 5px;
-}
-
-.slide {
-  margin-top: 20px;
-}
-
-.slide_title {
-  font-weight: bold;
-}
-
-.slide_show {
-  margin-top: 20px;
-}
-
-.slide_one,
-.slide_two {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.location {
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-}
-
-.slide_two {
-  display: none;
-}
-
-.slide .loaction_img {
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-}
-
-.location_name {
-  padding-top: 10px;
-  font-size: 13px;
-  padding-left: 5px;
-}
-
-.prev,
-.next {
-  cursor: pointer;
-  color: grey;
-  font-size: 15px;
-}
-
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
 }

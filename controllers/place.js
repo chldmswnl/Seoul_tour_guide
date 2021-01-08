@@ -10,20 +10,8 @@ router.get("/", (req, res) => {
 });
 
 // place Map API
-/*
-function initiateMap(places) {
-  const map = new google.maps.Map(document.querySelector(".map"), {
-    center: { lat: 37.575696, lng: 126.97693 },
-    zoom: 11,
-  });
-  places.map((place) => {
-    const marker = new google.maps.Marker({
-      position: { lat: place.lat, lng: place.lng },
-      map: map,
-    });
-  });
-}
 
+/*
 function setEventListener(places) {
   places.map((place) => {
     const place_name = document.querySelector(`.${place.name}`);
