@@ -37,7 +37,7 @@
                 
                 const iframe=document.querySelector('#placeMap');
                 const dataId=place.getAttribute('data-id');
-                iframe.setAttribute('src',`https://www.google.com/maps/embed/v1/place?q=place_id:${dataId}&key=AIzaSyAPJLR2dypKM0MiFHYskiTe0L6hqor9X1Y`);
+                iframe.setAttribute('src',`https://www.google.com/maps/embed/v1/place?q=place_id:${dataId}&key=`);
             });
         });
 
@@ -57,16 +57,7 @@
         
         
     </script>
-    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPJLR2dypKM0MiFHYskiTe0L6hqor9X1Y&callback=initMap"  type="text/javascript"></script>
-    <script  type="text/javascript">
-        function initMap() {
-
-        var map = new google.maps.Map(document.querySelector('.map'), {
-          zoom: 3,
-            center:{lat: -33.848588, lng: 151.209834}
-        });
-        }
-    </script>-->
+    
     
 </body>
 
