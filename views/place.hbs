@@ -1,6 +1,6 @@
 <body>
 
-    <div class="place_banner">
+    <section class="place_banner">
         <img src="/img/img+video/place_banner.jpg" alt="place" class="place_img">
         <div class="tags">
             <span class="place_tag1">#seoul_hot_spots</span><br>
@@ -8,8 +8,8 @@
             <span class="place_tag3">#seoul_hot_spots</span><br>
             <span class="place_tag4">#seoul_hot_spots</span><br>
         </div>
-    </div>
-    <div class="place_content">
+    </section>
+    <section class="place_content">
         <div class="places">
             {{#each data}}
             <div class="place" data-id={{placeId}}>
@@ -19,17 +19,21 @@
             </div>
             {{/each}}
         </div>
-       <section class="map">
-          
-          <iframe id="placeMap" width="300px" height="300px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJod7tSseifDUR9hXHLFNGMIs&key=AIzaSyAPJLR2dypKM0MiFHYskiTe0L6hqor9X1Y" allowfullscreen></iframe>
+        <section class="map">
+          <span class="key">{{google_api}}</span>
+          <iframe id="placeMap" width="350px" height="350px" frameborder="0" style="border:0" src={{google_src}} allowfullscreen></iframe>
           <span class="mapInfo">Click tourist spot to check the location</span>
-      </section>
-   
-    </div>
+        </section>
+    </section>
+  
       
-       <script>
+       <script defer>
+        
         const places=document.querySelectorAll('.place');
+        const placesSpace=document.querySelector('.places');
         const map=document.querySelector('.map');
+        const mapRect=map.getBoundingClientRect();
+        const apiKey=document.querySelector('.key').innerHTML;
         
 
         places.forEach((place)=>{
@@ -37,36 +41,27 @@
                 
                 const iframe=document.querySelector('#placeMap');
                 const dataId=place.getAttribute('data-id');
-                iframe.setAttribute('src',`https://www.google.com/maps/embed/v1/place?q=place_id:${dataId}&key=AIzaSyAPJLR2dypKM0MiFHYskiTe0L6hqor9X1Y`);
+                iframe.setAttribute('src',`https://www.google.com/maps/embed/v1/place?q=place_id:${dataId}&key=${apiKey}`);
             });
         });
 
+        
         window.onscroll=function(){myfunction()};
 
         function myfunction(){
-            let left=map.getBoundingClientRect().left;
-            console.log(left);
-            if(window.pageYOffset>=map.offsetTop)
+           
+            if(window.pageYOffset>=mapRect.top)
             {
-                
+                map.classList.add('scroll-fixed');
+
             }else
             {
-                
+                map.classList.remove('scroll-fixed');
             }
         }
         
         
     </script>
-    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPJLR2dypKM0MiFHYskiTe0L6hqor9X1Y&callback=initMap"  type="text/javascript"></script>
-    <script  type="text/javascript">
-        function initMap() {
-
-        var map = new google.maps.Map(document.querySelector('.map'), {
-          zoom: 3,
-            center:{lat: -33.848588, lng: 151.209834}
-        });
-        }
-    </script>-->
     
 </body>
 

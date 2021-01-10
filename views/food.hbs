@@ -33,7 +33,9 @@
                             <span class="res_description">{{description}}</span>
                             <span class="dollar">{{dollar_sign}}</span>
                         </div>
-                        
+                        <form class="reservation" method="POST" action="/food/{{name}}">
+                            <input type="submit" class="resBtn" value="Make a reservation">
+                        </form>
                     </li>
                     {{/each}}
                 </ul>

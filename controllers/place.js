@@ -6,6 +6,8 @@ router.get("/", (req, res) => {
   res.render("place", {
     title: "Place page",
     data: data.places,
+    google_src: `https://www.google.com/maps/embed/v1/place?q=place_id:ChIJod7tSseifDUR9hXHLFNGMIs&key=${process.env.Google}`,
+    google_api: process.env.Google,
   });
 });
 

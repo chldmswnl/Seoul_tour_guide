@@ -64,9 +64,10 @@ img {
 }
 
 .restaurant {
-  width: 600px;
+  width: 800px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border: 2px solid #d7d8db;
   border-radius: 3px;
   padding: 10px;
@@ -98,4 +99,21 @@ img {
 
 .res_info {
   margin-left: 10px;
+}
+
+.resBtn {
+  border: none;
+  padding: 10px;
+  width: 150px;
+  height: 35px;
+  background-color: #6e8096;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.resBtn:hover {
+  background-color: #f0c016;
 }

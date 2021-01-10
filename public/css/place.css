@@ -6,6 +6,7 @@
 body {
   height: 100vh;
   font-family: "Noto Sans KR", sans-serif;
+  display: inline;
 }
 
 .place_banner {
@@ -47,19 +48,15 @@ body {
   display: flex;
 }
 
-#placemap {
-  height: 500px;
-  width: 500px;
-}
 .map {
   text-align: center;
-  margin-right: 30px;
 }
+
 .mapInfo {
   font-size: 13px;
   display: block;
   margin-top: 20px;
-  width: 300px;
+  width: 350px;
   background-color: #3766e6;
   color: white;
   border-radius: 10px;
@@ -69,6 +66,7 @@ body {
 .place_content .places {
   margin-left: 20px;
   overflow: hidden;
+  width: 950px;
 }
 
 .place_content .place {
@@ -105,4 +103,14 @@ body {
 .place_des {
   font-size: 12px;
   padding: 5px;
+}
+
+.key {
+  display: none;
+}
+
+.scroll-fixed {
+  position: fixed;
+  top: 0px;
+  right: 0px;
 }

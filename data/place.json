@@ -35,6 +35,24 @@
       "name": "Cheonggyecheon",
       "description": "Urban park space with a restored stream",
       "placeId": "ChIJIwCT4-yifDUR1E63iG76hr0"
+    },
+    {
+      "img": "/img+video/place/Jogyesa.jpg",
+      "name": "Jogyesa",
+      "description": "Main buddist temple in Seoul",
+      "placeId": "ChIJHYhJ5OmifDURMOSQ2D-6lFY"
+    },
+    {
+      "img": "/img+video/place/lotte_tower.jpg",
+      "name": "Lotte Seoul tower",
+      "description": "Huge skyscraper with an observation deck",
+      "placeId": "ChIJW2ZfkQqlfDUR4vz9Xs0Q66s"
+    },
+    {
+      "img": "/img+video/place/Ihwa.jpg",
+      "name": "Ihwa Mural vilage",
+      "description": "Outdoor network of murals & sculptures",
+      "placeId": "ChIJ63NnRS6jfDURt-efnKIjXzs"
     }
   ]
 }
