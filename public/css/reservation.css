@@ -1,0 +1,77 @@
+.reservationSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.reservationTitle {
+  width: 700px;
+  height: 50px;
+  background-color: #2162ed;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.resInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 700px;
+  height: 150px;
+  background: rgb(153, 155, 158, 0.3);
+}
+
+.resName {
+  font-weight: bold;
+  color: #4a4b4d;
+  font-size: 18px;
+}
+
+.resAddress,
+.resPhone {
+  font-weight: bold;
+  color: #4a4b4d;
+  font-size: 13px;
+}
+
+.custom_calendar_table td {
+  text-align: center;
+}
+
+.custom_calendar_table thead.cal_date th {
+  font-size: 1.5rem;
+}
+
+.custom_calendar_table thead.cal_date th button {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+}
+
+.custom_calendar_table thead.cal_week th {
+  background-color: #288cff;
+  color: #fff;
+}
+
+.custom_calendar_table tbody td {
+  cursor: pointer;
+}
+
+.custom_calendar_table tbody td:nth-child(1) {
+  color: red;
+}
+
+.custom_calendar_table tbody td:nth-child(7) {
+  color: #288cff;
+}
+
+.custom_calendar_table tbody td.select_day {
+  background-color: #288cff;
+  color: #fff;
+}

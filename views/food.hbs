@@ -24,19 +24,22 @@
                 <ul class="list">
                     {{#each data}}
                     <li class="restaurant">
-                        <img src="/img/{{img}}" alt="{{location}}" class="res_thumbnail">
+                
                         <div class="res_info">
-                            <span class="res_name">{{name}}</span><br>
+                            <img src="/img/{{img}}" alt="{{location}}" class="res_thumbnail">
+                            <div>
+                                <span class="res_name">{{name}}</span><br>
                             <span class="res_add">{{address}}</span><br>
                             <span class="res_phone">{{phone}}</span><br>
                             <span class="res_hrs">{{hours}}</span><br>
                             <span class="res_description">{{description}}</span>
                             <span class="dollar">{{dollar_sign}}</span>
+                            </div>
                         </div>
-                        <form class="reservation" method="POST" action="/food/{{name}}">
-                            <input type="submit" class="resBtn" value="Make a reservation">
-                        </form>
+                        <a href="/food/{{_id}}" class="resBtn">Make a reservation</a>
+                        
                     </li>
+                   
                     {{/each}}
                 </ul>
         </div>

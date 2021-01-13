@@ -1,65 +1,73 @@
 const express = require("express");
 const router = express.Router();
-let data = require("../data/restaurant.json");
+const Restaurant = require("../models/restaurant");
 
 router.get("/", (req, res) => {
-  data = require("../data/restaurant.json");
-  res.render("food", {
-    title: "Food page",
-    data: data.restaurants,
-  });
+  Restaurant.find()
+    .exec()
+    .then((restaurant) => {
+      data = restaurant.map((value) => value.toObject());
+      res.render("food", {
+        title: "Food page",
+        data: data,
+      });
+    });
 });
 
 router.get("/mapo", (req, res) => {
-  data = require("../data/restaurant.json");
-  data = data.restaurants.filter((restaurant) => restaurant.location == "mapo");
-  res.render("food", {
-    title: "Food page",
-    data: data,
+  Restaurant.find({ location: "mapo" }, (err, restaurant) => {
+    if (err) return res.json(err);
+    res.render("food", {
+      title: "Food page",
+      data: restaurant,
+    });
   });
 });
 
 router.get("/gangnam", (req, res) => {
-  data = require("../data/restaurant.json");
-  data = data.restaurants.filter(
-    (restaurant) => restaurant.location == "gangnam"
-  );
-  res.render("food", {
-    title: "Food page",
-    data: data,
+  Restaurant.find({ location: "gangnam" }, (err, restaurant) => {
+    if (err) return res.json(err);
+    res.render("food", {
+      title: "Food page",
+      data: restaurant,
+    });
   });
 });
 
 router.get("/yongsan", (req, res) => {
-  data = require("../data/restaurant.json");
-  data = data.restaurants.filter(
-    (restaurant) => restaurant.location == "yongsan"
-  );
-  res.render("food", {
-    title: "Food page",
-    data: data,
+  Restaurant.find({ location: "yongsan" }, (err, restaurant) => {
+    if (err) return res.json(err);
+    res.render("food", {
+      title: "Food page",
+      data: restaurant,
+    });
   });
 });
 
 router.get("/yeongdeung", (req, res) => {
-  data = require("../data/restaurant.json");
-  data = data.restaurants.filter(
-    (restaurant) => restaurant.location == "yeongdeung"
-  );
-  res.render("food", {
-    title: "Food page",
-    data: data,
+  Restaurant.find({ location: "yeongdeung" }, (err, restaurant) => {
+    if (err) return res.json(err);
+    res.render("food", {
+      title: "Food page",
+      data: restaurant,
+    });
   });
 });
 
 router.get("/dondaemun", (req, res) => {
-  data = require("../data/restaurant.json");
-  data = data.restaurants.filter(
-    (restaurant) => restaurant.location == "dondaemun"
-  );
-  res.render("food", {
-    title: "Food page",
-    data: data,
+  Restaurant.find({ location: "dondaemun" }, (err, restaurant) => {
+    if (err) return res.json(err);
+    res.render("food", {
+      title: "Food page",
+      data: restaurant,
+    });
+  });
+});
+
+router.get("/:id", (req, res) => {
+  Restaurant.findOne({ _id: req.params.id }, (err, restaurant) => {
+    if (err) return res.json(err);
+    res.render("reservation", { data: restaurant });
   });
 });
 
