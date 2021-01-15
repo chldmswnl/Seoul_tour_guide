@@ -5,16 +5,26 @@
     </div>
     <div class="reservationSection">
         <span class="reservationTitle">Welcome to Reservation page ✨</span>
+        <span>{{meassage}}</span>
          <section class="resInfo">
              <span class="resName">{{data.name}}</span><br>
              <span class="resAddress">{{data.address}}</span><br>
              <span class="resPhone">{{data.phone}}</span>
          </section>
-         <form method="POST" class="infoSection" action="/food/{{data._id}}">
+         <form method="post" class="infoSection" action="/food/{{data._id}}">
                 
-                <input type="text" name="firstName" class="firstName" placeholder="First Name">
-                <input type="text" name="lastName" class="lastName" placeholder="Last Name">
-                <input type="text" name="email" class="email" placeholder="Email">
+                <input type="text" name="firstName" class="firstName" placeholder="First Name" value="{{value.firstName}}">
+                {{#if validation.firstName}}
+                <span class="valid">{{validation.firstName}}</span>
+                {{/if}}
+                <input type="text" name="lastName" class="lastName" placeholder="Last Name" value="{{value.lastName}}">
+                {{#if validation.lastName}}
+                <span class="valid">{{validation.lastName}}</span>
+                {{/if}}
+                <input type="text" name="email" class="email" placeholder="Email" value="{{value.email}}">
+                 {{#if validation.email}}
+                <span class="valid">{{validation.email}}</span>
+                {{/if}}
                 <span class="resText">Number of people</span>
                  <select name="ppl" class="ppl">
                     <option value="1">1</option>
@@ -29,10 +39,16 @@
                     <option value="10">10</option>
                    
                 </select>
+                 {{#if validation.people}}
+                <span class="valid">{{validation.people}}</span>
+                {{/if}}
                 <span class="resText">Date</span>
-                <input type="date" class="date">
+                <input type="date" name="date" class="date" >
+                {{#if validation.date}}
+                <span class="valid">{{validation.date}}</span>
+                {{/if}}
                  <span class="resText" >Time</span>
-                <select name="time" class="time">
+                <select name="time" name="time" class="time" >
                     <option value="10">10:00</option>
                     <option value="11">11:00</option>
                     <option value="12">12:00</option>
@@ -46,6 +62,9 @@
                     <option value="20">20:00</option>
                     <option value="21">21:00</option>
                 </select>
+                {{#if validation.time}}
+                <span class="valid">{{validation.time}}</span>
+                {{/if}}
                 <input type="submit" class="reservationBtn" value="SUBMIT">
            
          </form>

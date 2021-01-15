@@ -71,4 +71,69 @@ router.get("/:id", (req, res) => {
   });
 });
 
+router.post("/:id", (req, res) => {
+  const { firstName, lastName, email, ppl, date, time } = req.body;
+  let validation = [];
+  let passed = true;
+
+  if (!firstName) {
+    passed = false;
+    validation.firstName = "First Name is invalid";
+  }
+  if (!lastName) {
+    passed = false;
+    validation.lastName = "Last Name is invalid";
+  }
+  if (!validateEmail(email)) {
+    passed = false;
+    validation.email =
+      "must start with number or character and also contain '@'";
+  }
+  if (ppl < 1) {
+    passed = false;
+    validation.people = "Number should be over 0";
+  }
+  if (!validateDate(date)) {
+    passed = false;
+    validation.date = "Date is invalid";
+  }
+  if (!time) {
+    passed = false;
+    validation.time = "Time is invalid";
+  }
+
+  if (passed) {
+    Restaurant.findOne({ _id: req.params.id }, (err, restaurant) => {
+      if (err) return res.json(err);
+      res.render("reservation", { data: restaurant });
+    });
+  } else {
+    Restaurant.findOne({ _id: req.params.id }, (err, restaurant) => {
+      if (err) return res.json(err);
+      res.render("reservation", {
+        data: restaurant,
+        validation: validation,
+        value: req.body,
+      });
+    });
+  }
+
+  function validateEmail(email) {
+    const regular = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    return regular.test(String(email).toLowerCase());
+  }
+  function validateDate(date) {
+    const year = new Date().getFullYear();
+    const month = new Date().getMonth() + 1;
+    const day = new Date().getDate();
+    let today = "";
+
+    month < 10
+      ? (today = `${year}-0${month}-${day}`)
+      : (today = `${year}-${month}-${day}`);
+
+    return today > date ? false : true;
+  }
+});
+
 module.exports = router;
