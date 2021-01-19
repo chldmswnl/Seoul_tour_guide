@@ -130,3 +130,61 @@ img {
   margin: 0;
   margin-bottom: 10px;
 }
+
+.resConfirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.resConfirmTitle {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.resConfirmSentence {
+  font-size: 13px;
+  color: #5b5b5c;
+  margin-bottom: 20px;
+}
+
+.resConfirmInfo {
+  width: 400px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(55, 55, 56, 0.7);
+  border-radius: 10px;
+}
+
+.resConfirmInfo span {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.resConfirmBtn {
+  font-size: 13px;
+  margin-top: 30px;
+  text-decoration: none;
+  color: #a6a6a6;
+  font-weight: bold;
+  border: 3px solid #a6a6a6;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.resConfirmBtn:hover {
+  border-color: #103db0;
+  color: #103db0;
+}
+
+.reservationSentence {
+  font-size: 13px;
+  font-weight: bold;
+}

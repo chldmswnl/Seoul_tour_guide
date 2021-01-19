@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Restaurant = require("../models/restaurant");
+const sgMail = require("@sendgrid/mail");
 
 router.get("/", (req, res) => {
   Restaurant.find()
@@ -104,8 +105,10 @@ router.post("/:id", (req, res) => {
 
   if (passed) {
     Restaurant.findOne({ _id: req.params.id }, (err, restaurant) => {
-      if (err) return res.json(err);
-      res.render("reservation", { data: restaurant });
+      res.render("resConfirm", {
+        data: req.body,
+        res: restaurant,
+      });
     });
   } else {
     Restaurant.findOne({ _id: req.params.id }, (err, restaurant) => {
@@ -116,6 +119,26 @@ router.post("/:id", (req, res) => {
         value: req.body,
       });
     });
+  }
+
+  function sendEmail(restaurantInfo, reservationInfo) {
+    const key = process.env.Mail_key;
+    const sgMail = require("@sendgrid/mail");
+
+    sgMail.setApiKey(key);
+
+    const msg = {
+      to: `${reservationInfo.email}`,
+      from: "echoi26@myseneca.ca",
+      subject: "Here is your reservation information",
+      html: `Restaurant name: ${restaurantInfo.name} <br>
+               Name: ${reservationInfo.firstName} ${reservationInfo.lastName}<br>
+               Date: ${reservationInfo.date}<br>
+               Time: ${reservationInfo.time}<br>
+              `,
+    };
+
+    sgMail.send(msg);
   }
 
   function validateEmail(email) {
