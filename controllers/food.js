@@ -105,6 +105,7 @@ router.post("/:id", (req, res) => {
 
   if (passed) {
     Restaurant.findOne({ _id: req.params.id }, (err, restaurant) => {
+      sendEmail(restaurant, req.body);
       res.render("resConfirm", {
         data: req.body,
         res: restaurant,
@@ -131,14 +132,17 @@ router.post("/:id", (req, res) => {
       to: `${reservationInfo.email}`,
       from: "echoi26@myseneca.ca",
       subject: "Here is your reservation information",
-      html: `Restaurant name: ${restaurantInfo.name} <br>
+      html: ` Thank your for reservation!<br>
+              Restaurant name: ${restaurantInfo.name} <br>
                Name: ${reservationInfo.firstName} ${reservationInfo.lastName}<br>
                Date: ${reservationInfo.date}<br>
                Time: ${reservationInfo.time}<br>
               `,
     };
 
-    sgMail.send(msg);
+    sgMail.send(msg).catch((err) => {
+      console.log(err);
+    });
   }
 
   function validateEmail(email) {
@@ -151,9 +155,8 @@ router.post("/:id", (req, res) => {
     const day = new Date().getDate();
     let today = "";
 
-    month < 10
-      ? (today = `${year}-0${month}-${day}`)
-      : (today = `${year}-${month}-${day}`);
+    month < 10 ? (today = `${year}-0${month}`) : (today = `${year}-${month}`);
+    day < 10 ? (today = `${today}-0${day}`) : (today = `${today}-${day}`);
 
     return today > date ? false : true;
   }

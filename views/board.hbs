@@ -2,7 +2,7 @@
 <body>
     
     <div class="board_banner">
-        <img src="../img+video/board_seoul.jpg" alt="banner" class="board_banner">
+        <img src="/img/img+video/board_seoul.jpg" alt="banner" class="board_img">
         <span class="introduction_top">Welcome to community board</span>
         <span class="introduction_bottom">Let's share our experiences or great tips for Seoul travelers</span>
     </div>
@@ -10,10 +10,31 @@
         <div class="board_left">
             <div class="left_title">
                 <span class="title">Recommendations</span>
-                <button class="add_content" title="write">WRITE</button>
+                <!--<button class="add_content" title="write">WRITE</button>-->
             </div>
             <div class="contents">
-
+                  <form id="boardForm">
+                    <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" >
+                    </div>
+                     <div class="mb-3">
+                    <label for="writer" class="form-label">Writer</label>
+                    <input type="text" class="form-control" id="writer" name="writer" >
+                    </div>
+                    <div class="mb-3">
+                    <label for="content" class="form-label">Content</label>
+                    <textarea class="form-control" id="content" rows="3" name="content"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary" id="commentSubmit">Submit</button>
+                    </div>
+                  </form>
+                {{#if data}}
+                <div class="noContent">
+                    <span class="noContentMessage">There is no comment yet :(</span>
+                </div>
+                {{/if}}
             </div>
         </div>
         <div class="board_right">
@@ -37,17 +58,42 @@
             </div>
         </div>
     </div>
-    <div class="writing_window">
-        <span>What's your recommendation?</span>
-        <form action="javascript:addData();">
-            <p>Title : <input type="text" class="window_title" maxlength="50" required size="40px"></p>
-            <p>Writer : <input type="text" class="window_writer" maxlength="15" required ></p>
-            <p>Content : </p><textarea name="window_content" id="window_content" cols="50" rows="10"></textarea>
-            <p>Tags : <input type="text" class="tags" maxlength="20" placeholder="ex)#food" size="30px"></p>
-            <button type="submit" class="submit window_btn">POST</button>
-            <button type="reset"  class="window_btn">RESET</button>
-            <button class="close window_btn">CLOSE</button>
-        </form>
-    </div>
+
 
 </body>
+
+<script type="text/javascript" async>
+   $(function(){
+
+
+       $("#commentSubmit").on('click',function(e)
+       {
+           e.preventDefault();
+
+           let title=$("input[name=title]").val();
+           let writer=$("input[name=writer]").val();
+           let content=$("textarea[name=content]").val();
+           
+           $.ajax({
+               method:"POST",
+               url:"/board/addComment",
+               data:{
+                   title:title,
+                   writer:writer,
+                   content:content,
+                   date:new Date().toLocaleDateString(),
+               },
+               dataType:"JSON",
+
+               success: function(){
+                   alert("Success!");
+               },
+               error:function(){
+                   alert("Fail!");
+               }
+           });
+
+           
+       })
+   })
+</script>

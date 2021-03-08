@@ -47,10 +47,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const mainController = require("./controllers/main");
 const foodController = require("./controllers/food");
 const placeController = require("./controllers/place");
+const boardController = require("./controllers/board");
 
 app.use("/", mainController);
 app.use("/food", foodController);
 app.use("/place", placeController);
+app.use("/board", boardController);
 
 const HTTP_PORT = process.env.PORT;
 
