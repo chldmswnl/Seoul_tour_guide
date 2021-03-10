@@ -10,7 +10,6 @@
         <div class="board_left">
             <div class="left_title">
                 <span class="title">Recommendations</span>
-                <!--<button class="add_content" title="write">WRITE</button>-->
             </div>
             <div class="contents">
                   <form id="boardForm">
@@ -30,11 +29,8 @@
                         <button type="submit" class="btn btn-primary" id="commentSubmit">Submit</button>
                     </div>
                   </form>
-                {{#if data}}
-                <div class="noContent">
-                    <span class="noContentMessage">There is no comment yet :(</span>
-                </div>
-                {{/if}}
+                <section class="commentSection">
+                </section>
             </div>
         </div>
         <div class="board_right">
@@ -63,8 +59,49 @@
 </body>
 
 <script type="text/javascript" async>
+   function makeComment(commentArr){
+       $(".commentSection").html('');
+       commentArr.forEach(comment=>{
+           $(".commentSection").append(
+               `
+                 <div class="card" id="comment" >
+                            <div class="card-header" id="cardHeader">
+                                <div>
+                                    <h5>${comment.title}</h5>
+                                    <span id="commentText" class="cardWriter">${comment.writer}</span>
+                                </div>
+                                <div id="commentDateBtn">
+                                    <p id="commentText">${comment.date}</p>
+                                    <button id="commentDeleteBtn" data-comment-id=${comment._id} ><i class="fas fa-trash-alt" ></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                
+                                <span class="card-text">${comment.content}</span>
+                            </div>
+                 </div>
+               `
+           )
+       })
+   }
+   
    $(function(){
 
+         $.ajax("/board/getComment")
+           .done(function(data,status,jqXHR){
+                  makeComment(data);
+        })
+
+        $(document).on('click','#commentDeleteBtn',function(e)
+        {
+            e.preventDefault();
+            let id=$(this).data("comment-id");
+             $.ajax(`/board/deleteComment/${id}`, { method: "DELETE" })
+                    .done(function(data,status,jqXHR){
+                        makeComment(data);
+                    });
+            
+        })
 
        $("#commentSubmit").on('click',function(e)
        {
@@ -73,7 +110,10 @@
            let title=$("input[name=title]").val();
            let writer=$("input[name=writer]").val();
            let content=$("textarea[name=content]").val();
+           let date=new Date().toLocaleDateString();
            
+         
+
            $.ajax({
                method:"POST",
                url:"/board/addComment",
@@ -81,17 +121,18 @@
                    title:title,
                    writer:writer,
                    content:content,
-                   date:new Date().toLocaleDateString(),
+                   date:date,
                },
                dataType:"JSON",
+           }).done(function(data,status,jqXHR){
+                  makeComment(data);
+                  $("input[name=title]").val("");
+                  $("input[name=writer]").val("");
+                  $("textarea[name=content]").val("");
+            
+           })
 
-               success: function(){
-                   alert("Success!");
-               },
-               error:function(){
-                   alert("Fail!");
-               }
-           });
+         
 
            
        })

@@ -1,22 +1,26 @@
 const express = require("express");
 const router = express.Router();
 const Comment = require("../models/comment");
+let data;
 
 router.get("/", (req, res) => {
-  Comment.find().exec((comment, err) => {
-    if (comment === null) {
+  Comment.find()
+    .exec()
+    .then((comment) => {
+      data = comment.map((value) => value.toObject());
       res.render("board", {
         title: "Board page",
-        data: false,
+        data: data,
       });
-    } else {
-      check = false;
-      res.render("board", {
-        title: "Board page",
-        data: comment,
-      });
-    }
-  });
+    });
+});
+
+router.get("/getComment", (req, res) => {
+  Comment.find()
+    .exec()
+    .then((comment) => {
+      res.json(comment);
+    });
 });
 
 router.post("/addComment", (req, res) => {
@@ -31,11 +35,25 @@ router.post("/addComment", (req, res) => {
   comment
     .save()
     .then(() => {
-      console.log("success!");
+      Comment.find()
+        .exec()
+        .then((comment) => {
+          res.json(comment);
+        });
     })
     .catch((err) => {
       console.log(err);
     });
+});
+
+router.delete("/deleteComment/:id", (req, res) => {
+  Comment.deleteOne({ _id: req.params.id }, function (err, comment) {
+    Comment.find()
+      .exec()
+      .then((comment) => {
+        res.json(comment);
+      });
+  });
 });
 
 module.exports = router;

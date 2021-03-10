@@ -16,7 +16,7 @@ const restaurantSchema = new Schema({
 
 const Restaurant = mongoose.model("restaurant", restaurantSchema);
 
-Restaurant.find().count({}, (err, count) => {
+Restaurant.find().countDocuments({}, (err, count) => {
   if (count === 0) {
     Restaurant.insertMany(restaurants);
   } else {

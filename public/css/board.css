@@ -30,8 +30,8 @@
 }
 
 .board_left {
-  width: 50%;
   margin-left: 50px;
+  width: 60%;
 }
 
 .left_title {
@@ -54,17 +54,14 @@
   padding-bottom: 10px;
 }
 
-.board_right {
-  width: 30%;
-  margin-left: 20px;
-}
-
 .keywords {
   margin-top: 50px;
   padding: 15px;
 }
 
 .keywords span {
+  display: inline-block;
+  margin-right: 10px;
   background-color: #595757;
   color: white;
   padding: 10px;
@@ -97,42 +94,37 @@
   margin-top: 20px;
 }
 
-.window_content {
-  width: 200px;
-  height: 200px;
-}
-
-.window_btn {
-  margin-top: 10px;
-  padding: 5px;
-  background-color: white;
-  border: 1px solid grey;
-  outline: none;
-  color: #707273;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.window_btn:hover {
-  color: #393a3b;
-}
-
-.noContent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 600px;
-  height: 100px;
-  border-radius: 20px;
-  background-color: rgba(89, 89, 87, 0.4);
-}
-.noContent {
-  margin-top: 20px;
-}
-.noContentMessage {
-  font-weight: bold;
-}
-
-#boardForm {
+#boardForm,
+.commentSection {
   margin-left: 50px;
+}
+
+#comment {
+  margin-bottom: 20px;
+}
+
+#cardHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+#commentText {
+  color: #595757;
+  font-size: 13px;
+  margin: 0;
+}
+
+#commentDateBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#commentDeleteBtn {
+  border: none;
+  background-color: transparent;
+  margin-left: 10px;
+}
+#commentDateBtn i {
+  font-size: 18px;
 }
